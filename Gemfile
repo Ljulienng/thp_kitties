@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 
-
+gem 'dotenv-rails'
 #lazy user creation
 gem 'devise'
 gem 'faker'
