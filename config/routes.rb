@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+
+
   resources :products do
       resources :carts, only: [:destroy, :create, :update, :index]
   end
   resources :users do
       resources :carts, only: [:destroy, :create, :update, :index]
+      resources :avatars, only: [:create]
   end
 
   root 'home#index'
