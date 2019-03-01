@@ -12,5 +12,4 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require custom_script
 //= require_tree .
