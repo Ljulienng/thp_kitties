@@ -12,6 +12,9 @@
   </thead>
 
   <tbody>
+    <%= render "big_cards_product"%>
+    <%= render "cards_product"%>
+
     <% @products.each do |product| %>
       <tr>
         <td><%= product.price %></td>
