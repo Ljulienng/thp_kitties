@@ -1,0 +1,16 @@
+$('#insidemodale').html("<%= j render 'sign_in'%>");
+$('#modale').removeClass('collapse');
+
+$("#closemodale").click(function(e) {
+    e.preventDefault();
+    $("#modale").addClass('collapse')
+});
+/*
+$("#modale").click(function() {
+    $("#modale").addClass('collapse')
+});
+
+$("#insidemodale").click(function(event){
+    event.stopPropagation();
+});
+*/
