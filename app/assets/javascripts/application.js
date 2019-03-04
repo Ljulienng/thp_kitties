@@ -13,3 +13,6 @@
 //= require jquery3
 //= require jquery_ujs
 //= require_tree .
+//= require assets/in-view/dist/in-view.min.js
+//= require assets/highlight.js/lib/highlight.js
+//= require assets/js/theme.min.js
