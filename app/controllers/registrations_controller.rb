@@ -1,4 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController  
-  clear_respond_to  
-  respond_to :js
+  respond_to :html
+  respond_to :js, only: [:new]
 end  
