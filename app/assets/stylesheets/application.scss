@@ -1,9 +1,11 @@
 /*
-@import "bootstrap";
-@import "font-awesome";
-@import "components/*";
-
 *= require styles/atom-one-dark
+*= require fontawesome-free/css/all.min
 *= require theme
 
+
 */
+
+
+@import "fontawesome-free/css/all.min";
+
