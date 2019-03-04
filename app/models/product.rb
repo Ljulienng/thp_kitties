@@ -11,9 +11,5 @@ class Product < ApplicationRecord
 
 
   has_many :cart_items, dependent: :destroy
-<<<<<<< HEAD
   has_one_attached :avatar
-=======
-
->>>>>>> 68c57b17e6ade45ae04ef021b772e3bad4b97018
 end

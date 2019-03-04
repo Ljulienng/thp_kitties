@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'products_avatars_controller/create'
-  get 'products_avatars_controller/new'
-  get 'avatars_controller/create'
-  get 'avatars_controller/new'
   devise_for :users
 
   resources :products do
-    resources :avatars, only: [:create]  
+    resources :products_avatars, only: [:create]  
     resources :carts, only: [:destroy, :create, :update, :index]
   end
   resources :users do
