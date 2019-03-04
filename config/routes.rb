@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :carts, only: [:destroy, :create, :update, :index]
   end
   resources :users do
-      resources :carts, only: [:destroy, :create, :update, :index]
+      resources :carts, only: [:destroy, :create, :update, :show]
       resources :avatars, only: [:create]
   end
 
