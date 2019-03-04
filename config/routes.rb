@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   resources :users do
       resources :carts, only: [:destroy, :create, :update, :show]
       resources :avatars, only: [:create]
+      resources :carts, only: [:show] do
+        resources :charges
+      end
   end
 
   root 'home#index'
-  resources :charges
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

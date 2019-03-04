@@ -15,5 +15,7 @@
   <%= @cart.purchased %>
 </p>
 
+<%= render partial: 'cart_page' %>
+
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
