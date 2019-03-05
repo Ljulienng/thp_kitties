@@ -92,11 +92,13 @@
                         
                             <div class="card-image">
                             <%if i.avatar.attached?%>
-                                <a href="shop-product.html">
+                                <a href="/cats/<%=i.id%>">
                                 <%= image_tag i.avatar, alt: 'cat', height: 205, width: 205%>
                                 </a>
                             <%else%>
+                            <a href="/cats/<%=i.id%>">
                             <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                            </a>
                             <%end%>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
