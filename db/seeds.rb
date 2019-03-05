@@ -21,6 +21,8 @@ end
                             description: "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
+  # while product.description.length < 20
+  #   product.crea
 end
 
 6.times do

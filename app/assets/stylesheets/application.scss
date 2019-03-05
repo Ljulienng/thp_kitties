@@ -1,6 +1,10 @@
 /*
+*= require_tree
+*= require_self
 
 *= require styles/atom-one-dark
-*= require theme
 *= require fontawesome-free/css/all.min
 */
+
+
+@import 'theme.scss';

@@ -1,0 +1,33 @@
+<div class="col-md-4 mb-5">
+
+    <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
+
+        <div class="card card-profile border-0 shadow  text-center">
+            <div class="card-profile-cover">
+                <%if @user.avatar.attached?%>
+                    <%= image_tag(@user.avatar, :alt => "avatar", class: "card-img-top") %> 
+                <%else%>
+                    <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar", class: "card-img-top") %> 
+                <%end%>      
+
+            </div>
+            <div>
+                <%if @user.avatar.attached?%>
+                    <%= image_tag(@user.avatar, :alt => "avatar", class: "card-profile-image avatar shadow") %> 
+                <%else%>
+                    <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar", class: "card-profile-image avatar shadow") %> 
+                <%end%>
+            </div>      
+
+            <div class="card-body">
+                <div class="mb-3">
+                    <h5 class="mb-0"><%= @user.name%></h5>
+                    <span class="text-muted"><%= @user.user_name %></span>
+                </div>
+                <span class="text-muted"><i class="fas fa-envelope mr-2"></i><%= @user.email %></span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
