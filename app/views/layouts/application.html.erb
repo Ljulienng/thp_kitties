@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThpKitties</title>
+    <title>TKP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <!-- Fonts -->
-<!--     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800"> -->
 
 
   </head>
 
   <body>
 
+    <%= render "layouts/nav"%>
+
     <%= yield %>
+    <%= render "layouts/footer"%>
+    <%= render "layouts/modale" %>
+
     <%= link_to "sign_in", new_user_session_path, remote: true, class: "btn" %>
     <%= link_to "sign_up", new_user_registration_path, remote: true, class: "btn" %>
-    <%=render "layouts/modale"%>
+
+
   </body>
 </html>

@@ -1,12 +1,17 @@
 /*
+*= require_tree
+*= require_self
 
 *= require styles/atom-one-dark
 *= require fontawesome-free/css/all.min
-*= require theme
-
 */
 
+<<<<<<< HEAD
 .dropdown-principal {
   position: absolute;
   right: 10px;
 }
+=======
+
+@import 'theme.scss';
+>>>>>>> master
