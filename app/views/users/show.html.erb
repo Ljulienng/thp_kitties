@@ -1,24 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<section class="pt-5 pt-lg-0 bg-secondary">
+    <div class="container">
+        <div class="row">
+            <%= render "small_card" %>
+            <div class="col-md-8 mt-lg-5 mb-5">
+                <!-- Setting -->
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
+                <div class="page-header mb-4">
 
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <%= link_to edit_user_path(@user), class: "h6 mb-0"  do %>
+                              <i class="fas fa-angle-left mr-3"></i>Settings
+                            <% end %>                                  
+                        </div>
+                        <div class="col-md-6 text-md-right">
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- General -->
+
+                <!-- Timeline -->
+                <div class="card">
+                    <div class="card-header pt-4 pb-2 border-0">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar rounded-circle shadow">
+                              <%if @user.avatar.attached?%>
+                                  <%= image_tag(@user.avatar, :alt => "avatar", class: "card-img-top") %> 
+                              <%else%>
+                                  <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar", class: "card-img-top") %> 
+                              <%end%>      
+                            </div>
+                            <div class="avatar-content">
+                                <h6 class="mb-0"><%= @user.name %></h6>
+                                <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Created : <%= @user.created_at %></small> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p><%= @user.description %></p>
+                        <!-- Badges -->
+                        <div class="d-lg-flex">
+                            <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                <div class="media-body pl-2">
+                                    <span class="h6">10 Skills</span>
+                                </div>
+                            </a>
+                            <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                <div class="media-body pl-2">
+                                    <span class="h6">57 Endorsements</span>
+                                </div>
+                            </a>
+                            <a class="media d-flex align-items-center mb-3 mb-lg-0">
+                                <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
+                                <div class="media-body pl-2">
+                                    <span class="h6">7 Accomplishments</span>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

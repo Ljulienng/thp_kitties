@@ -11,27 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+          <div class="field">
+            <%= form.label :first_name, class: "form-control-label" %>
+            <%= form.text_field :first_name, class: "form-control", placeholder: "Enter your first name" %>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+          <%= form.label :last_name, class: "form-control-label" %>
+          <%= form.text_field :last_name, class: "form-control", placeholder: "Also your last name" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="form-control-label">Email</label>
+            <input class="form-control" type="email" placeholder="name@exmaple.com">
+            <small class="form-text text-muted mt-2">This is the main email address that we'll send notifications to. </small>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+          <%= form.label :user_name, class: "form-control-label" %>
+          <%= form.text_field :user_name, class: "form-control", placeholder: "And your user name" %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <!-- Description -->
+  <div class="pt-5 mt-5 delimiter-top">
+
+      <div class="page-inner-header mb-4">
+          <h5 class="mb-1">About me</h5>
+
+          <p class="text-muted mb-0">Use this field to let others know you better.</p>
+
+      </div>
+
+      <div class="row">
+          <div class="col">
+              <div class="form-group">
+                  <div class="form-group">
+                    <div class="field">
+                      <%= form.label :description, class: "form-control-label" %>
+                      <%= form.text_area :description, class:"form-control", placeholder: "Tell us a few words about yourself", rows: "3" %>
+                    </div>
+                    <small class="form-text text-muted mt-2">You can @mention other users and organizations to link to them.</small>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_name %>
-    <%= form.text_field :user_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="pt-5 mt-5 delimiter-top">
+      <%= form.submit "Save changes", class: "btn btn-sm btn-primary" %>
+      <%= link_to 'Cancel', @user, class: "btn btn-link" %> 
   </div>
 <% end %>
+
+
+
+
