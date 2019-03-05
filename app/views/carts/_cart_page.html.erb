@@ -29,7 +29,7 @@
                             <tr>
                                 <td>
                                     <div class="media align-items-center">
-                                        <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 80px;">
+                                        <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
                                         <div class="media-body">
                                             <div class="lh-100">
                                                 <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
@@ -42,7 +42,7 @@
                                     <span class="font-weight-bold">$<%=product.price%> USD</span>
                                 </td>
                                 <td class="text-right">
-                                    <a href="#" class="text-light" data-toggle="tooltip" data-original-title="Remove item">
+                                    <a href="<%product_cart_path(product.id)%>" class="text-light" data-toggle="tooltip" data-method="DELETE" data-original-title="Remove item">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
@@ -69,7 +69,7 @@
         <i class="fas fa-angle-up"></i>
     </span>
             <div class="container text-center">
-                <a href="shop-checkout-customer.html" class="btn btn-white btn-circle mt-4">Place order</a>
+                <a href="new_user_cart_charge_path" class="btn btn-white btn-circle mt-4">Place order</a>
             </div>
         </section>
 
