@@ -10,11 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-<<<<<<< HEAD
     @user = User.find(params[:id])
-=======
-    @user = User.find(current_user.id)
->>>>>>> 68c57b17e6ade45ae04ef021b772e3bad4b97018
   end
 
   # GET /users/new
