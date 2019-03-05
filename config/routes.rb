@@ -3,15 +3,15 @@ Rails.application.routes.draw do
 
   resources :cart_products, only: [:create, :destroy]
 
-  resources :products do
-      resources :carts, only: [:destroy, :create, :update, :index]
-  end
+  resources :products
+
+  resources :carts, only: [:destroy, :create, :update, :index]
+
   resources :users do
       resources :carts, only: [:destroy, :create, :update, :show]
       resources :avatars, only: [:create]
-      resources :carts, only: [:show] do
-        resources :charges
-      end
+      resources :carts, only: [:show]
+      
   end
 
   root 'home#index'

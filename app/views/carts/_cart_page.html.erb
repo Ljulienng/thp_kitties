@@ -42,7 +42,7 @@
                                     <span class="font-weight-bold">$<%=product.price%> USD</span>
                                 </td>
                                 <td class="text-right">
-                                    <a href="<%product_cart_path(product.id)%>" class="text-light" data-toggle="tooltip" data-method="DELETE" data-original-title="Remove item">
+                                    <a href="<%cart_product_path(product.id)%>" class="text-light" data-method="DELETE">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>

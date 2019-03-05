@@ -18,7 +18,7 @@ end
 20.times do
   product = Product.create!(title: Faker::Creature::Cat.name,
                             price: rand(1..10),
-                            description: Faker::TvShows::RickAndMorty.quote,
+                            description: "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
 end
