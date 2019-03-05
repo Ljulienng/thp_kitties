@@ -48,8 +48,11 @@ ActiveRecord::Schema.define(version: 2019_03_04_151601) do
 
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "product_id"
+    t.boolean "purchased", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_carts_on_product_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -62,10 +65,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_151601) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.decimal "price"
-    t.string "title"
-    t.text "description"
-    t.string "image_url"
+    t.float "price"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_151601) do
     t.string "user_name"
     t.text "description"
     t.boolean "admin"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -88,4 +90,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_151601) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "users"
 end
