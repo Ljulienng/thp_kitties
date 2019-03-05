@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
 
-  resources :products do
-    resources :products_avatars, only: [:create]
+  resources :products, :path=> "cats" do
+    resources :products_avatars, only: [:create]  
     resources :carts, only: [:destroy, :create, :update, :index]
   end
-  resources :users do
+  resources :users, :path=> "friends" do
       resources :carts, only: [:destroy, :create, :update, :show]
       resources :avatars, only: [:create]
   end
