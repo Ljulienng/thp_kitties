@@ -7,8 +7,15 @@
                     <div class="col-lg-6">
                         <!-- Product gallery -->
                         <div class="mb-5 imgProd">
-                        <%= image_tag @product.avatar, alt: 'cat', width: 570, height: 600 %>
-                        </div>
+                        <%if @product.avatar.attached?%>
+                        <a href="/cats/<%=@product.id%>">
+                        <%= image_tag @product.avatar, alt: 'cat', height: 205, width: 205%>
+                        </a>
+                    <%else%>
+                    <a href="/cats/<%=@product.id%>">
+                    <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                    </a>
+                    <%end%>                        </div>
                         
                     </div>
                     <div class="col-lg-6">
