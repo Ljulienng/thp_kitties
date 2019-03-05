@@ -1,6 +1,16 @@
 /*
 
 *= require styles/atom-one-dark
-*= require theme
 *= require fontawesome-free/css/all.min
+*= require theme
+
 */
+
+
+@import "fontawesome-free/css/all.min";
+
+
+.dropdown-principal {
+    position: absolute;
+    right: 10px;
+}
