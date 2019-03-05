@@ -1,6 +1,6 @@
 <section class="slice slice-lg bg-gradient-warning">
             <div class="position-absolute bottom-10 col-md-15 col-lg-15 col-xl-13 d-none d-md-block">
-                <img alt="Image placeholder" src="../assets/img/prv/chaton-1.png" width="425" height="425" class="img-fluid">
+                <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" width="900" height="900" class="img-fluid">
             </div>
             <div class="container pt-lg">
                 <div class="row justify-content-end">
@@ -86,17 +86,23 @@
                     <h3 class="h6">Latest products</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
-                        <div class="card card-product no-border shadow shadow--hover">
+                    <%Product.all.each do |i|%>
+                        <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
+                            <div class="card card-product no-border shadow shadow--hover">
+                        
                             <div class="card-image">
+                            <%if i.avatar.attached?%>
                                 <a href="shop-product.html">
-                                    <img alt="Image placeholder" src="../assets/img/prv/product-1.png" class="img-center">
+                                <%= image_tag i.avatar, alt: 'cat', height: 205, width: 205%>
                                 </a>
+                            <%else%>
+                            <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                            <%end%>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
                             <div class="card-body pt-0 text-center">
-                                <a href="shop-product.html" class="card-title">Men's fitness top</a>
-                                <span class="card-price">$199 USD</span>
+                                <a href="shop-product.html" class="card-title"><%=i.title%></a>
+                                <span class="card-price"><%=i.price%></span>
                                 <div class="product-colors mt-3">
                                     <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
                                     <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
@@ -114,3 +120,7 @@
                             </div>
                         </div>
                     </div>
+                    <%end%>
+                </div>
+
+
