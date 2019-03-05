@@ -20,6 +20,8 @@
     <%= render "layouts/footer"%>
     <%= render "layouts/modale" %>
 
+    <%= link_to "sign_in", new_user_session_path, remote: true, class: "btn" %>
+    <%= link_to "sign_up", new_user_registration_path, remote: true, class: "btn" %>
 
 
   </body>
