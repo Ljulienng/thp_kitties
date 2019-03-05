@@ -19,22 +19,24 @@
                                     </div>
                                     <div class="media-body">
                                         <h5 class="text-white mb-0"><%= @user.first_name %></h5>
-                                        <div>    
-                                        <% if false %>
+                                        <div>   
+ 
                                             <%= form_tag user_avatars_path(@user), multipart: true do %>
                                                 <%= file_field_tag :avatar %>
                                                 <%= submit_tag "uploader l'avatar", class: "text-white" %>
                                             <% end %>
 
-                                        <% end %>
 
-
+                                        <% if false %>
+                                        
                                             <form>
                                                 <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
                                                 <label for="file-1">
                                                     <span class="text-white">Change avatar</span>
                                                 </label>
                                             </form>
+                                        <% end %>
+
                                         </div>
                                     </div>
                                 </div>
