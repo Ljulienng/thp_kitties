@@ -2,29 +2,31 @@
 
 <br><br><br>
 <div class="row">
-<div class="col-6 col-sm-10 col-lg-6">
-<%if @product.avatar.attached?%>
-  <%= image_tag @product.avatar, alt: 'avatar' %>
-<%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-<%end%>
-<h3>Changer d'avatar ?</h3>
-<%= form_tag product_products_avatars_path(@product), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
-</div>
+  <div class="col-6 col-sm-10 col-lg-6">
+    <% if @product.avatar.attached? %>
+      <%= image_tag @product.avatar, alt: 'avatar' %>
+    <% else %>
+      <p>=== There is no avatar available for this product ===</p>
+    <% end %>
+    <% if current_user.try(:admin?) %>
+      <h3>Changer d'avatar ?</h3>
+      <%= form_tag product_products_avatars_path(@product), multipart: true do %>
+        <%= file_field_tag :avatar %>
+        <%= submit_tag "mettre à jour" %>
+      <% end %>
+    <% end %>
+  </div>
 
 
-<div class="col-6 col-sm-2 col-lg-6 card-body">
-<h1 class="h1Display"><%=@product.title%></h1>
-<br>
-<h5 class="card-title">Price :</h5>
-<p><%=@product.price%></p>
-<br>
-<h5 class="card-title">Description :</h5>
-<p><%=@product.description%></p>
-</div>
+  <div class="col-6 col-sm-2 col-lg-6 card-body">
+    <h1 class="h1Display"><%=@product.title%></h1>
+    <br>
+    <h5 class="card-title">Price :</h5>
+    <p><%=@product.price%></p>
+    <br>
+    <h5 class="card-title">Description :</h5>
+    <p><%=@product.description%></p>
+  </div>
 </div>
 <br>
 <button type="button" class="btn center btn-dark btn-icon-label">
