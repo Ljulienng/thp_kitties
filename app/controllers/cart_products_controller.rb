@@ -1,5 +1,5 @@
 class CartProductsController < ApplicationController
-  before_action :authenticate_user!, only[:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @user_cart = current_user.cart
