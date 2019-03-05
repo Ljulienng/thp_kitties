@@ -1,7 +1,8 @@
-<h1>Page Product</h1>
+<%= stylesheet_link_tag "products", media: "all" %>
 
-<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@product.id%></p>
-<h3>Avatar actuel</h3>
+<br><br><br>
+<div class="row">
+<div class="col-6 col-sm-10 col-lg-6">
 <%if @product.avatar.attached?%>
   <%= image_tag @product.avatar, alt: 'avatar' %>
 <%else%>
@@ -12,3 +13,28 @@
   <%= file_field_tag :avatar %>
   <%= submit_tag "mettre à jour" %>
 <% end %>
+</div>
+
+
+<div class="col-6 col-sm-2 col-lg-6 card-body">
+<h1 class="h1Display"><%=@product.title%></h1>
+<br>
+<h5 class="card-title">Price :</h5>
+<p><%=@product.price%></p>
+<br>
+<h5 class="card-title">Description :</h5>
+<p><%=@product.description%></p>
+</div>
+</div>
+<br>
+<button type="button" class="btn center btn-dark btn-icon-label">
+    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+    <span class="btn-inner--text">Add to cart</span>
+</button>
+<br>
+<br>
+
+<h2 class="h1Display">Comments</h2>
+<div class="form-group">
+    <textarea class="form-control" placeholder="Your comment" rows="3"></textarea>
+</div>
