@@ -1,6 +1,68 @@
-<h1>Editing User</h1>
+<section class="slice">
+    <div class="container">
+        <div class="row row-grid">
+            <%= render "nav_lateral" %>
+            <div class="col-lg-9">
+                <!-- Change avatar -->
 
-<%= render 'form', user: @user %>
+                <div class="card bg-gradient-warning border-0 shadow mb-4">
+                    <div class="card-body py-3">
+                        <div class="row row-grid align-items-center">
+                            <div class="col-lg-8">
+                                <div class="media align-items-center">
+                                    <div class="avatar avatar-lg rounded-circle mr-3">
+                                        <%if @user.avatar.attached?%>
+                                            <%= image_tag(@user.avatar, :alt => "avatar") %> 
+                                        <%else%>
+                                            <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar") %> 
+                                        <%end%>      
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="text-white mb-0"><%= @user.first_name %></h5>
+                                        <div>   
+ 
+                                            <%= form_tag user_avatars_path(@user), multipart: true do %>
+                                                <%= file_field_tag :avatar %>
+                                                <%= submit_tag "uploader l'avatar", class: "text-white" %>
+                                            <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
+                                        <% if false %>
+                                        
+                                            <form>
+                                                <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
+                                                <label for="file-1">
+                                                    <span class="text-white">Change avatar</span>
+                                                </label>
+                                            </form>
+                                        <% end %>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+
+                <form>
+                    <!-- General -->
+
+                    <div class="page-inner-header mb-4">
+                        <h5 class="mb-1">General information</h5>
+
+                        <p class="text-muted mb-0">You can help us, by filling your data, create you a much better experience using our website.</p>
+
+                    </div>
+
+                    <%= render 'form', user: @user %>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
