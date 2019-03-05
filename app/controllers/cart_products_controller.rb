@@ -7,5 +7,6 @@ class CartProductsController < ApplicationController
   end
 
   def destroy
+    
   end
 end

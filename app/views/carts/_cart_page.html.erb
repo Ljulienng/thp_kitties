@@ -1,58 +1,76 @@
-
-
-
-    <!--START-->
-    <h2>Cart</h2>
-    <table class="table table-hover table-cards align-items-center">
-        <thead>
-            <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white">
-                <th scope="row">
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h6 class="h5 font-weight-normal mb-0">truc</h6>
-                        </div>
-                    </div>
-                </th>
-                <td>$$$$</td>
-            </tr>
-            <tr class="table-divider"></tr>
-        </tbody>
-    </table>
-
-    <div class="card">
-        <h3 class="text-muted">Shipping</h3>
-        <table class="table table-hover table-cards align-items-center">
-            <tbody>
-                <tr class="bg-white">
-                    <th scope="row">
-                        <div class="media align-items-center">
-                            <div class="media-body">
-                                <h6 class="h5 font-weight-normal mb-0 text-muted">Price</h6>
+<!DOCTYPE html>
+<html lang="en">
+    <main>
+        <header class="header-account-page bg-gradient-primary d-flex align-items-end">
+            <div class="container">
+              <h1 class="text-white text-center mt-0" style="font-weight: bold">THP Kittens</h1>
+                <div class="row">
+                    <div class=" col-lg-12">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <span class="h2 mb-0 text-white d-block">Shopping Cart</span>
                             </div>
                         </div>
-                    </th>
-                    <td>$$$$</td>
-                </tr>
-                <tr class="table-divider"></tr>
-            </tbody>
-        </table>
-    </div>
-    <br>
+                      </header>
+        <section class="slice slice-lg">
+            <div class="container">
+                <!-- Shopping cart -->
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% @cart.products.each do |product| %>
+                            <tr>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
+                                        <div class="media-body">
+                                            <div class="lh-100">
+                                                <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
+                                            </div>
+                                            <span class="font-weight-bold text-muted"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="font-weight-bold">$<%=product.price%> USD</span>
+                                </td>
+                                <td class="text-right">
+                                    <a href="<%product_cart_path(product.id)%>" class="text-light" data-toggle="tooltip" data-method="DELETE" data-original-title="Remove item">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Cart information -->
+                <div class="mt-5 pt-5 delimiter-top">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 col-lg-4 text-center">
+                            <h5 class="mb-0">Total : <%=@total%> $</h5>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="customCheck1">
-        <label class="custom-control-label" for="customCheck1">I agree with the <a href="#">current user agreement</a>
-            and
-            <a href="#">conficendiality agreement</a></label>
-    </div>
-    <button type="button" class="btn col-2 btn-primary center btn-circle">Pass Order</button>
+        <section class="slice bg-gradient-primary">
+            <span class="tongue tongue-top">
+        <i class="fas fa-angle-up"></i>
+    </span>
+            <div class="container text-center">
+                <a href="new_user_cart_charge_path" class="btn btn-white btn-circle mt-4">Place order</a>
+            </div>
+        </section>
 
-    <!--END-->
-
-    
+    </main>
