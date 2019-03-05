@@ -8,6 +8,10 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     @cart = Cart.find(params[:id])
+    @total = 0
+    @cart.products.each do |product|
+      @total += product.price
+    end
   end
 
   # GET /carts/new

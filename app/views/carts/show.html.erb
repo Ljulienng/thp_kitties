@@ -1,21 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @cart.user %>
-</p>
-
-<p>
-  <strong>Product:</strong>
-  <%= @cart.product %>
-</p>
-
-<p>
-  <strong>Purchased:</strong>
-  <%= @cart.purchased %>
-</p>
 
 <%= render partial: 'cart_page' %>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
