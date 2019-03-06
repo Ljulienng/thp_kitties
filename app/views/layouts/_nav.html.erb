@@ -1,9 +1,8 @@
 <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
-                <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
+                <%= link_to root_path, :class => 'navbar-brand mr-lg-5' do  %>
                     <img alt="Image placeholder" src="/assets/img/logo-1.png" style="height: 50px;">
-                </a>
-
+                <% end %>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -11,11 +10,9 @@
                 <div class="collapse navbar-collapse" id="navbar-main-collapse">
                     <ul class="navbar-nav align-items-lg-center">
                         <li class="nav-item ">
-                            <a class="nav-link" href="../cats">Shop</a>
+                            <%= link_to 'Shop', products_path, :class => 'nav-link'  %>
                         </li>
-
-                            <a class="nav-link" href="contact" role="button">Contact</a>
-
+                            <%= link_to "Contact", contact_path, :class => 'nav-link'  %>
                         </li>
                     </ul>
 

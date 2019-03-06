@@ -3,25 +3,28 @@
 
 
 <div class="row">
-                    <%Product.all.each do |i|%>
+                    <%Product.all.each do |product|%>
                         <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
                             <div class="card card-product no-border shadow shadow--hover">
-                        
+
                             <div class="card-image">
-                            <%if i.avatar.attached?%>
-                                <a href="/cats/<%=i.id%>">
-                                <%= image_tag i.avatar, alt: 'cat', height: 405, width: 400%>
-                                </a>
+                            <%if product.avatar.attached?%>
+                                <%= link_to product_path(product.id) do  %>
+                                    <%= image_tag product.avatar, alt: 'cat', height: 405, width: 400%>
+                                <% end %>
                             <%else%>
-                            <a href="/cats/<%=i.id%>">
-                            <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
-                            </a>
+                                <%= link_to product_path(product.id) do %>
+                                    <%= image_tag "/assets/img/brand/logo_1.png", alt: "Image placeholder", :class => "img-fluid" %>
+                                <% end %>
                             <%end%>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
                             <div class="card-body pt-0 text-center">
-                                <a href="shop-product.html" class="card-title"><%=i.title%></a>
-                                <span class="card-price"><%=i.price%></span>
+                                <%= link_to product_path(product.id), :class => "card-title" do%>
+                                    <%= product.title %>
+                                <% end %>
+
+                                <span class="card-price"><%=product.price%></span>
                                 <div class="product-colors mt-3">
                                     <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
                                     <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
@@ -44,4 +47,3 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
