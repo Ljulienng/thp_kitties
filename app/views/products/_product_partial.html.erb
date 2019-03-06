@@ -4,7 +4,7 @@
         <div class="card-image">
             <%if product.avatar.attached?%>
                 <%= link_to product_path(product.id) do  %>
-                    <%= image_tag product.avatar, alt: 'cat', height: 308, width: 308%>
+                    <%= image_tag product.avatar, alt: 'cat', height: 208, width: 208%>
                 <% end %>
             <%else%>
                 <%= link_to product_path(product.id) do %>
@@ -35,4 +35,4 @@
             </button>
         </div>
     </div>
-</div>       
+</div>
