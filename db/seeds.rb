@@ -14,16 +14,20 @@ require 'faker'
                       email: Faker::Internet.email,
                       password: "123456")
 end
-
+i = 0
 20.times do
-  product = Product.create!(title: Faker::Creature::Cat.name,
+  i += 1
+  product = Product.create!(title: Faker::Creature::Cat.unique.name,
                             price: rand(1..10),
                             description: "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
-  # while product.description.length < 20
-  #   product.crea
+    product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"app/assets/images/img/Kittens/kitten#{i}.jpg")
+    while product.description.length < 15
+      product.description = Faker::TvShows::RickAndMorty.quote
+    end
 end
+
 
 6.times do
   cart = Cart.create!(user_id: User.all.sample.id)
