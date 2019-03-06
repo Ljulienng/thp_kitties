@@ -20,12 +20,4 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
-  def correct_user
-    if current_user.cart != @cart
-      flash[:danger] = "Incorrect cart"
-      redirect_to '/'
-    end
-  end
-
 end
