@@ -1,31 +1,46 @@
 <%=stylesheet_link_tag"products"%>
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Price</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render "cards_product"%>
-
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.price %></td>
-        <td><%= product.title %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+                    <%Product.all.each do |i|%>
+                        <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
+                            <div class="card card-product no-border shadow shadow--hover">
+                        
+                            <div class="card-image">
+                            <%if i.avatar.attached?%>
+                                <a href="/cats/<%=i.id%>">
+                                <%= image_tag i.avatar, alt: 'cat', height: 405, width: 400%>
+                                </a>
+                            <%else%>
+                            <a href="/cats/<%=i.id%>">
+                            <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                            </a>
+                            <%end%>
+                                <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
+                            </div>
+                            <div class="card-body pt-0 text-center">
+                                <a href="shop-product.html" class="card-title"><%=i.title%></a>
+                                <span class="card-price"><%=i.price%></span>
+                                <div class="product-colors mt-3">
+                                    <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
+                                    <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
+                                    <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
+                                    <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
+                                </div>
+                            </div>
+                            <div class="card-product-actions" data-animation-in="slideInLeft" data-animation-out="slideOutLeft">
+                                <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Add to cart">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                                <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
 
 <br>
 

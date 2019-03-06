@@ -11,58 +11,15 @@
                 <div class="collapse navbar-collapse" id="navbar-main-collapse">
                     <ul class="navbar-nav align-items-lg-center">
                         <li class="nav-item ">
-                            <a class="nav-link" href="../index.html">Overview</a>
+                            <a class="nav-link" href="../cats">Shop</a>
                         </li>
-                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
-                                <div class="list-group">
-                                    <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Landing Pages</h6>
-                                                <p class="mb-0">A great point to start from.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Secondary Pages</h6>
-                                                <p class="mb-0">Build your website with these demos.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../pages/pages-account.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/maintenance.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Account Pages</h6>
-                                                <p class="mb-0">Account management made easy.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../pages/pages-shop.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/in-progress.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Shop Pages</h6>
-                                                <p class="mb-0">Explore the full ecommerce website flow.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../docs/alerts.html" role="button">Components</a>
+                        
+                            <a class="nav-link" href="contact" role="button">Contact</a>
+
                         </li>
                     </ul>
 
                     <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-
                         <% if user_signed_in? %>
                             <div class="nav-item dropdown dropdown-animate" data-toggle="hover">
                                 <button class="btn btn-white btn-icon-only rounded-circle dropdown" type="button" id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,10 +41,10 @@
                             </div>
                         <% else %>
                             <li class="nav-item">
-                                <%= link_to "Log in", new_user_session_path,     class: "nav-link" %>
+                                <%= link_to "Log in", new_user_session_path, remote: true, class: "nav-link" %>
                             </li>
                             <li class="nav-item">
-                                <%= link_to "Sign up", new_user_registration_path,   class: "nav-link" %>
+                                <%= link_to "Sign up", new_user_registration_path, remote: true,  class: "nav-link" %>
                             </li>
                         <% end %>
                     </ul>
