@@ -29,7 +29,7 @@
                             <tr>
                                 <td>
                                     <div class="media align-items-center">
-                                        <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
+                                        <%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %>
                                         <div class="media-body">
                                             <div class="lh-100">
                                                 <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
