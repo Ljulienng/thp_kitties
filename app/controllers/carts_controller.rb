@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :if_current_cart_exist?
 
   # GET /carts
   # GET /carts.json
@@ -7,6 +8,10 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @total = 0
+    @cart.products.each do |product|
+      @total += product.price
+    end
   end
 
   # GET /carts/new
@@ -67,6 +72,17 @@ class CartsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params.require(:cart).permit(:user_id, :product_id, :purchased)
+    end
+
+    def if_current_cart_exist?
+      if @cart == nil
+        current_user.cart  = Cart.create(user: current_user)
+      else
+        if current_user.cart != @cart
+          flash[:danger] = "stfu"
+          redirect_to root_path
+        end
+      end
     end
 
 end
