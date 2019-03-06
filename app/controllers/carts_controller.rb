@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :if_current_cart_exist?
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
@@ -7,6 +8,11 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @cart = Cart.find(current_user.cart.id)
+    @total = 0
+    @cart.products.each do |product|
+      @total += product.price
+    end
   end
 
   # GET /carts/new
@@ -61,12 +67,18 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = Cart.find(current_user.cart.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params.require(:cart).permit(:user_id, :product_id, :purchased)
+    end
+
+    def if_current_cart_exist?
+      if current_user.cart == nil
+        current_user.cart  = Cart.create(user: current_user)
+      end
     end
 
 end
