@@ -6,7 +6,8 @@ class CartProductsController < ApplicationController
     @user_cart = current_user.cart
     @product_selected = Product.find(params[:product_id])
     CartProduct.create(cart: @user_cart, product: @product_selected)
-    render "home/index"
+    flash[:notice] = "Product placed successfully in your cart"
+    redirect_to products_path
   end
 
   def destroy
