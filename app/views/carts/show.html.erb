@@ -12,68 +12,84 @@
                             </div>
                         </div>
                       </header>
-        <section class="slice slice-lg">
-            <div class="container">
-                <!-- Shopping cart -->
-                <div class="table-responsive">
-                    <table class="table align-items-center">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <% @cart.products.each do |product| %>
-                            <tr>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
-                                        <div class="media-body">
-                                            <div class="lh-100">
-                                                <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
+            <section class="slice slice-lg">
+                <div class="container">
+                    <!-- Shopping cart -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @cart.products.each do |product| %>
+                                <tr>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
+                                            <div class="media-body">
+                                                <div class="lh-100">
+                                                    <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
+                                                </div>
+                                                <span class="font-weight-bold text-muted"></span>
                                             </div>
-                                            <span class="font-weight-bold text-muted"></span>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">$<%=product.price%> USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <%cp = CartProduct.where(cart_id: @cart.id, product_id: product.id) %>
+                                      <%= link_to cart_product_path(cp.first.id), class: "text-light", method: :delete do %>
+                                                                              <i class="fas fa-times"></i>
+                                        <%end%>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Cart information -->
+                    <div class="mt-5 pt-5 delimiter-top">
+                        <div class="row justify-content-center">
+                            <div class="col-md-5 col-lg-4 text-center">
+                                <h5 class="mb-0">Total : <%=@@total%> $</h5>
                                     </div>
-                                </td>
-                                <td>
-                                    <span class="font-weight-bold">$<%=product.price%> USD</span>
-                                </td>
-                                <td class="text-right">
-                                    <%cp = CartProduct.where(cart_id: @cart.id, product_id: product.id) %>
-                                  <%= link_to cart_product_path(cp.first.id), class: "text-light", method: :delete do %>
-                                                                          <i class="fas fa-times"></i>
-                                    <%end%>
-                                </td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Cart information -->
-                <div class="mt-5 pt-5 delimiter-top">
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 col-lg-4 text-center">
-                            <h5 class="mb-0">Total : <%=@@total%> $</h5>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="slice bg-gradient-primary">
-            <span class="tongue tongue-top">
-        <i class="fas fa-angle-up"></i>
-    </span>
-            <div class="container text-center">
-                <%=link_to("Order" , {controller: "Order", action "create"}) do %>
-                <a href="" class="btn btn-white btn-circle mt-4">Place order</a>
-                <% end %>
-            </div>
-        </section>
+            <section class="slice bg-gradient-primary">
+                <span class="tongue tongue-top">
+            <i class="fas fa-angle-up"></i>
+        </span>
+                <div class="container text-center">
+                  <%= form_tag order_new do %>
+                    <article>
+                      <% if flash[:error].present? %>
+                        <div id="error_explanation">
+                          <p><%= flash[:error] %></p>
+                        </div>
+                      <% end %>
+                      <label class="amount">
+                        <span>Amount: <%=@@total%> $</span>
+                      </label>
+                    </article>
 
-    </main>
+                    <script src="https://checkout.stripe.com/checkout.js" class="btn btn-white btn-circle mt-4"
+                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                            data-description="A month's subscription"
+                            data-amount="<%=@@total/100%>"
+                            data-locale="auto"></script>
+                  <% end %>
+                </div>
+
+            </section>
+
+        </main>
