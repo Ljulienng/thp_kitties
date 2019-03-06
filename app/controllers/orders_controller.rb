@@ -1,7 +1,5 @@
 class OrdersController < ApplicationController
-  def new
-  end
-
+  layout "application"
   def index
     @orders = current_user.orders
   end

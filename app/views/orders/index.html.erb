@@ -1,7 +1,24 @@
-<%= @orders.each do |order| %>
+<% if @orders.empty? %>
+    <section class="min-vh-100">
+        <span class="mask bg-gradient-primary opacity-9"></span>
+        <div class="spotlight-holder">
+            <div class="container d-flex align-items-center pt-lg pt-lg-0">
+                <div class="col py-lg">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h1 class="text-white">You still do not have any order ...</h1>
+                            <p class="lead text-white mt-4">but you have still a chance to do it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<% else %>
     <div class="row">
-        <% order.cart.products.each do |product| %>
-            <%= render "orders/order_partial", product: product %>
+        <% @orders.each do |order| %>
+                <%= render "orders/order_partial", order: order %>
         <% end %>
     </div>
 <% end %>
+
