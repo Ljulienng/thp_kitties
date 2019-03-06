@@ -2,8 +2,12 @@ class OrdersController < ApplicationController
   def new
   end
 
+  def index
+    @orders = current_user.orders
+  end
+
   def create
-    @cart = Cart.find(params[:cart_id])
+    @cart = current_user.cart
     @total = 0
     @cart.products.each do |product|
       @total += product.price
@@ -25,15 +29,21 @@ class OrdersController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd',
     })
-    @order.save
-    current_user.cart.destroy
-    redirect_to root_path
+    @order.cart = @cart
+    
+    if @order.save
+      @cart.update(user_id: nil)  
+      flash[:notice] = "order pass successfully"
+      redirect_to root_path
+    else 
+      flash.now[:error] = "problem with your order"
+      render "carts/show"
+    end
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to cart_path(@cart)
-
-
   end
 
 

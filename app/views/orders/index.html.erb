@@ -1,0 +1,7 @@
+<%= @orders.each do |order| %>
+    <div class="row">
+        <% order.cart.products.each do |product| %>
+            <%= render "orders/order_partial", product: product %>
+        <% end %>
+    </div>
+<% end %>

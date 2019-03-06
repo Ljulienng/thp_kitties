@@ -8,6 +8,7 @@
 
 require 'faker'
 
+
 10.times do
   user = User.create!(first_name: Faker::Name.first_name,
                       last_name: Faker::Name.last_name,
@@ -19,20 +20,11 @@ i = 0
   i += 1
   product = Product.create!(title: Faker::Creature::Cat.unique.name,
                             price: rand(1..10),
-                            description: "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+                            description: Faker::RickandMorty.quote,
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
-    product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"/app/assets/images/img/Kittens/kitten#{i}.jpg")
+    product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"kitten#{i}.jpg")
     while product.description.length < 15
       product.description = Faker::TvShows::RickAndMorty.quote
     end
-end
-
-
-6.times do
-  cart = Cart.create!(user_id: User.all.sample.id)
-end
-
-12.times do
-  cart_products = CartProduct.create!(cart_id: Cart.all.sample.id, product_id: Product.all.sample.id)
 end
