@@ -1,130 +1,97 @@
 <section class="slice slice-lg bg-gradient-warning">
-            <div class="position-absolute bottom-0 col-md-15 col-lg-15 col-xl-13 d-none d-md-block">
-                <img alt="Image placeholder" src="../assets/img/prv/chaton-1.png" width="550" height="550" class="img-fluid">
-            </div>
-            <div class="container pt-lg">
-                <div class="row justify-content-end">
-                    <div class="col-md-6 col-lg-5 text-center text-lg-left">
-                        <a href="<%= products_path%>" class="alert alert-news">
-                            <span class="badge badge-pill badge-warning">New</span>
-                            <span class="alert-content">Explore all the kittens</span>
-                            <i class="fas fa-angle-right"></i>
+    <div class="position-absolute bottom-0 col-md-15 col-lg-15 col-xl-13 d-none d-md-block">
+        <img alt="Image placeholder" src="../assets/img/prv/chaton-1.png" width="550" height="550" class="img-fluid">
+    </div>
+    <div class="container pt-lg">
+        <div class="row justify-content-end">
+            <div class="col-md-6 col-lg-5 text-center text-lg-left">
+                <a href="<%= products_path%>" class="alert alert-news">
+                    <span class="badge badge-pill badge-warning">New</span>
+                    <span class="alert-content">Explore all the kittens</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+                <div class="">
+                    <h2 class="text-white my-4">
+                <span class="display-4 font-weight-light">New Collection</span>
+                <span class="d-block">the most beautiful <strong class="font-weight-light">kittens</strong></span>
+            </h2>
+                    <p class="lead text-white">a unique and beautiful photo collection of kitten, you will fall for our little ball of hair too cute.</p>
+                    <div class="mt-5">
+                        <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
+                            <span class="btn-inner--icon"><i class="fas fa-shopping-bag"></i></span>
+                            <span class="btn-inner--text">Go shopping</span>
                         </a>
-                        <div class="">
-                            <h2 class="text-white my-4">
-                        <span class="display-4 font-weight-light">New Collection</span>
-                        <span class="d-block">the most beautiful <strong class="font-weight-light">kittens</strong></span>
-                    </h2>
-                            <p class="lead text-white">a unique and beautiful photo collection of kitten, you will fall for our little ball of hair too cute.</p>
-                            <div class="mt-5">
-                                <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
-                                    <span class="btn-inner--icon"><i class="fas fa-shopping-bag"></i></span>
-                                    <span class="btn-inner--text">Go shopping</span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="row row-grid mt-lg d-none d-lg-flex">
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-orange rounded-circle">
-                                        <i class="fas fa-shipping-fast"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>Fast shipping</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
-                                    </div>
-                                </div>
+            </div>
+        </div>
+        <div class="row row-grid mt-lg d-none d-lg-flex">
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start">
+                            <div class="icon icon-shape icon-orange rounded-circle">
+                                <i class="fas fa-shipping-fast"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-blue rounded-circle">
-                                        <i class="fas fa-credit-card"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>Online payment</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-pink rounded-circle">
-                                        <i class="fas fa-hand-holding-usd"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>Refund guarantee</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
-                                    </div>
-                                </div>
+                            <div class="icon-text px-4">
+                                <h5>Fast shipping</h5>
+                                <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
-                <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
-                    <defs></defs>
-                    <path d="" class="shape-fill-white" />
-                </svg>
-            </div>
-        </section>
-         <div class="row"<section class="slice slice-lg delimiter-top" id="sct-products">
-            <div class="container">
-                <div class="mb-5 text-center">
-                    <h3 class="h6">Latest products</h3>
-                </div>
-                <div class="row">
-                    <%Product.all.each do |product|%>
-                        <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
-                            <div class="card card-product no-border shadow shadow--hover">
-
-                            <div class="card-image">
-                            <%if product.avatar.attached?%>
-                                <%= link_to product_path(product.id) do  %>
-                                 <%= image_tag product.avatar, alt: 'cat', height: 205, width: 205%>
-                                <% end %>
-                            <%else%>
-                              <%= link_to product_path(product.id) do %>
-                                <%= image_tag "/assets/img/brand/logo_1.png", alt: "Image placeholder", :class => "img-fluid" %>
-                              <% end %>
-                            <%end%>
-                                <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start">
+                            <div class="icon icon-shape icon-blue rounded-circle">
+                                <i class="fas fa-credit-card"></i>
                             </div>
-                            <div class="card-body pt-0 text-center">
-                                <%= link_to product_path(product.id), :class => "card-title" do%>
-                                    <%= product.title %>
-                                <% end %>
-                                <span class="card-price"><%=product.price%></span>
-                                <div class="product-colors mt-3">
-                                    <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
-                                    <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
-                                    <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
-                                    <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
-                                </div>
-                            </div>
-                            <div class="card-product-actions" data-animation-in="slideInLeft" data-animation-out="slideOutLeft">
-                                <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Add to cart">
-                                    <i class="fas fa-shopping-bag"></i>
-                                </button>
-                                <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Wishlist">
-                                    <i class="fas fa-heart"></i>
-                                </button>
+                            <div class="icon-text px-4">
+                                <h5>Online payment</h5>
+                                <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
                             </div>
                         </div>
                     </div>
-                    <%end%>
                 </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start">
+                            <div class="icon icon-shape icon-pink rounded-circle">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="icon-text px-4">
+                                <h5>Refund guarantee</h5>
+                                <p class="mb-0">All you have to do is to bring your passion for kitten. We take care of the rest.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+            <defs></defs>
+            <path d="" class="shape-fill-white" />
+        </svg>
+    </div>
+</section>
 
+
+<div class="row" class="slice slice-lg delimiter-top" id="sct-products">
+    <div class="container">
+        <div class="mb-5 text-center">
+            <h3 class="h6">Latest products</h3>
+        </div>
+        <div class="row">
+            <%@products.each do |product|%>
+                <%= render "products/product_partial", product: product %>
+            <%end%>
+        </div>
+    </div>
+</div>
 
