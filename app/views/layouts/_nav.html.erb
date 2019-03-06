@@ -13,7 +13,7 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="../cats">Shop</a>
                         </li>
-                        
+
                             <a class="nav-link" href="contact" role="button">Contact</a>
 
                         </li>
@@ -29,11 +29,12 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdown_user_account">
                                     <h6 class="dropdown-header">User menu</h6>
-                                    <% if current_user.cart %>
-                                     <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
+                                    <%= link_to  cart_path(current_user.cart.id), class: "dropdown-item" do %>
+                                        <% if current_user.cart %>
+                                         <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
+                                        <% end %>
+                                        <i class="fas fa-shopping-cart text-primary "></i>cart
                                     <% end %>
-                                    <%= link_to '<i class="fas fa-shopping-cart text-primary"></i>Cart'.html_safe, user_cart_path(current_user.id, current_user.id), class: "dropdown-item" %>
-
                                     <%= link_to "<i class='fas fa-cog text-primary'></i>Settings".html_safe, edit_user_path(current_user.id), class: "dropdown-item" %>
                                     <div class="dropdown-divider" role="presentation"></div>
                                     <%= link_to "<i class='fas fa-sign-out-alt text-primary'></i>Sign out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
