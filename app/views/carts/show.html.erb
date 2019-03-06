@@ -12,6 +12,7 @@
                             </div>
                         </div>
                       </header>
+
         <section class="slice slice-lg">
             <div class="container">
                 <!-- Shopping cart -->
@@ -34,44 +35,58 @@
                                             <div class="lh-100">
                                                 <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
                                             </div>
-                                            <span class="font-weight-bold text-muted"></span>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="font-weight-bold">$<%=product.price%> USD</span>
-                                </td>
-                                <td class="text-right">
-                                    <%cp = CartProduct.where(cart_id: @cart.id, product_id: product.id) %>
-                                  <%= link_to cart_product_path(cp.first.id), class: "text-light", method: :delete do %>
-                                                                          <i class="fas fa-times"></i>
-                                    <%end%>
-                                </td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Cart information -->
-                <div class="mt-5 pt-5 delimiter-top">
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 col-lg-4 text-center">
-                            <h5 class="mb-0">Total : <%=@total%> $</h5>
-                                </div>
-                            </form>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">$<%=product.price%> USD</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <%cp = CartProduct.where(cart_id: @cart.id, product_id: product.id) %>
+                                      <%= link_to cart_product_path(cp.first.id), class: "text-light", method: :delete do %>
+                                                                              <i class="fas fa-times"></i>
+                                        <%end%>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Cart information -->
+                    <div class="mt-5 pt-5 delimiter-top">
+                        <div class="row justify-content-center">
+                            <div class="col-md-5 col-lg-4 text-center">
+                                <h5 class="mb-0"><%= @total%> $</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="slice bg-gradient-primary">
-            <span class="tongue tongue-top">
-        <i class="fas fa-angle-up"></i>
-    </span>
-            <div class="container text-center">
-                <a href="new_user_cart_charge_path" class="btn btn-white btn-circle mt-4">Place order</a>
-            </div>
-        </section>
+            <section class="slice bg-gradient-primary">
+                <span class="tongue tongue-top">
+            <i class="fas fa-angle-up"></i>
+        </span>
+                <div class="container text-center">
+                  <%= form_tag cart_orders_path(@cart) do %>
+                    <article>
+                      <% if flash[:error].present? %>
+                        <div id="error_explanation">
+                          <p><%= flash[:error] %></p>
+                        </div>
+                      <% end %>
+                      <label class="amount">
+                        <span>Amount : <%= @total%> $</span>
+                      </label>
+                    </article>
 
-    </main>
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                            data-description="A month's subscription"
+                            data-amount="<%= @total%>"
+                            data-locale="auto"></script>
+                  <% end %>
+                </div>
+
+            </section>
+
+        </main>

@@ -19,7 +19,7 @@ i = 0
   i += 1
   product = Product.create!(title: Faker::Creature::Cat.unique.name,
                             price: rand(1..10),
-                            description: Faker::TvShows::RickAndMorty.quote,
+                            description: "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
     product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"/app/assets/images/img/Kittens/kitten#{i}.jpg")
