@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-=======
+
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}  
->>>>>>> 4f22553651d91465b4263d5a887349edb220ee6d
+
 
 
   resources :products, :path=> "cats" do
