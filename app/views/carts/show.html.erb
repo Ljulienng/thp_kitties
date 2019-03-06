@@ -67,7 +67,7 @@
             <i class="fas fa-angle-up"></i>
         </span>
                 <div class="container text-center">
-                  <%= form_tag cart_orders_path(@cart) do %>
+                  <%= form_tag orders_path() do %>
                     <article>
                       <% if flash[:error].present? %>
                         <div id="error_explanation">

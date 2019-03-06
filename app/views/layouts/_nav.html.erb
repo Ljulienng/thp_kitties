@@ -39,6 +39,11 @@
 
                                     <% end %>
                                     <%= link_to "<i class='fas fa-cog text-primary'></i>Settings".html_safe, edit_user_path(current_user.id), class: "dropdown-item" %>
+                                    <%= link_to orders_path, class: "dropdown-item"  do%>
+                                            <i class="fas fa-credit-card mr-2 text-primary"></i>
+                                            <span>Billing</span>
+                                    <% end %>
+
                                     <div class="dropdown-divider" role="presentation"></div>
                                     <%= link_to "<i class='fas fa-sign-out-alt text-primary'></i>Sign out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                                 </div>
