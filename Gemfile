@@ -76,8 +76,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'table_print'
-<<<<<<< HEAD
-=======
-
->>>>>>> 62ad1b795ee410af8ef4a892074755668bb0d807
 gem 'mailjet'
