@@ -12,29 +12,28 @@
                             </div>
                         </div>
                       </header>
-            <section class="slice slice-lg">
-                <div class="container">
-                    <!-- Shopping cart -->
-                    <div class="table-responsive">
-                        <table class="table align-items-center">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              <% @cart.products.each do |product| %>
-                                <tr>
-                                    <td>
-                                        <div class="media align-items-center">
-                                            <img alt="Image placeholder" class="mr-3" src="<%=product.image_url%>" style="width: 100px;">
-                                            <div class="media-body">
-                                                <div class="lh-100">
-                                                    <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
-                                                </div>
-                                                <span class="font-weight-bold text-muted"></span>
+
+        <section class="slice slice-lg">
+            <div class="container">
+                <!-- Shopping cart -->
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% @cart.products.each do |product| %>
+                            <tr>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %>
+                                        <div class="media-body">
+                                            <div class="lh-100">
+                                                <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
                                             </div>
                                         </div>
                                     </td>
