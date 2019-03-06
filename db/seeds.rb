@@ -8,8 +8,6 @@
 
 require 'faker'
 
-User.destroy_all
-Product.destroy_all
 
 10.times do
   user = User.create!(first_name: Faker::Name.first_name,
