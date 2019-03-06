@@ -13,4 +13,11 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
+  def name
+    if self.first_name && self.last_name
+      self.first_name + " " + self.last_name
+    else
+      self.first_name
+    end
+  end
 end

@@ -1,12 +1,13 @@
+<% color = color || "primary" %>
 <% if resource.errors.any? %>
   <div id="error_explanation">
-    <h2>
+    <h2 class="text-<%= color %>">
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
        %>
     </h2>
-    <ul>
+    <ul class="text-<%= color %>">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

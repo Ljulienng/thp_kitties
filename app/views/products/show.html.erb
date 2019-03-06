@@ -1,117 +1,27 @@
 <%= stylesheet_link_tag "products", media: "all" %>
 
-<br><br><br>
-<div class="row">
-  <div class="col-6 col-sm-10 col-lg-6">
-    <% if @product.avatar.attached? %>
-      <%= image_tag @product.avatar, alt: 'avatar' %>
-    <% else %>
-      <p>=== There is no avatar available for this product ===</p>
-    <% end %>
-    <% if current_user.try(:admin?) %>
-      <h3>Changer d'avatar ?</h3>
-      <%= form_tag product_products_avatars_path(@product), multipart: true do %>
-        <%= file_field_tag :avatar %>
-        <%= submit_tag "mettre à jour" %>
-      <% end %>
-    <% end %>
-  </div>
-
-
-  <div class="col-6 col-sm-2 col-lg-6 card-body">
-    <h1 class="h1Display"><%=@product.title%></h1>
-    <br>
-    <h5 class="card-title">Price :</h5>
-    <p><%=@product.price%></p>
-    <br>
-    <h5 class="card-title">Description :</h5>
-    <p><%=@product.description%></p>
-  </div>
-</div>
-<br>
-<button type="button" class="btn center btn-dark btn-icon-label">
-    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
-    <span class="btn-inner--text">Add to cart</span>
-</button>
-<br>
-<br>
-
-<h2 class="h1Display">Comments</h2>
-<div class="form-group">
-    <textarea class="form-control" placeholder="Your comment" rows="3"></textarea>
-</div>
-<p>
-  <strong>Name:</strong>
-  <%= @product.title %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
-    <main>
-
-
-
-
-
-
-
-
-
-
-
-
-        <header class="slice pt-lg pb-4 bg-gradient-warning d-flex align-items-end">
-            <div class="container pt-lg">
-                <div class="row">
-                    <div class=" col-lg-12">
-                        <div class="row align-items-center mb-4">
-                            <div class="col-lg-5 mb-4 mb-lg-0">
-                                <span class="h2 mb-0 text-white d-block">Men fitness shirt</span>
-                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                    <li class="breadcrumb-item">
-                                        <a href="#" class="text-normal">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="#" class="text-normal">Shop</a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="#" class="text-normal">Men's clothing</a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-
 
         <section class="slice slice-lg" id="sct-products">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- Product gallery -->
-                        <div class="mb-5">
-                            <a href="">
-                                <img alt="Image placeholder" src="../assets/img/prv/shop-product-lg-1.jpg" class="img-fluid rounded shadow shadow-lg--hover">
-                            </a>
-                        </div>
-                        <div class="mb-5">
-                            <a href="">
-                                <img alt="Image placeholder" src="../assets/img/prv/shop-product-lg-2.jpg" class="img-fluid rounded shadow shadow-lg--hover">
-                            </a>
-                        </div>
-                        <div class="mb-5">
-                            <a href="">
-                                <img alt="Image placeholder" src="../assets/img/prv/shop-product-lg-3.jpg" class="img-fluid rounded shadow shadow-lg--hover">
-                            </a>
-                        </div>
+                        <div class="mb-5 imgProd">
+                        <%if @product.avatar.attached?%>
+                        <a href="/cats/<%=@product.id%>">
+                        <%= image_tag @product.avatar, alt: 'cat', height: 205, width: 205%>
+                        </a>
+                    <%else%>
+                    <a href="/cats/<%=@product.id%>">
+                    <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                    </a>
+                    <%end%>                        </div>
+                        
                     </div>
                     <div class="col-lg-6">
                         <form class="pl-lg-4">
                             <!-- Product title -->
-                            <h2 class="h5 text-capitalize">Men fitness shirt</h2>
+                            <h2 class="h5 text-capitalize"><%=@product.title%></h2>
 
                             <!-- Rating stars -->
 
@@ -129,36 +39,24 @@
                             <!-- Product description -->
                             <div class="mt-4">
                                 <small class="text-dark font-weight-bold d-block mb-2">Description:</small>
-                                <p class="text-sm lh-150">Pellentesque habitant morbi tristique senectus et netus malesuada fames turpis egestas. Vestibulum tortor quam feugiat vitae ultricies eget tempor.</p>
+                                <p class="text-sm lh-150"><%=@product.description%></p>
                             </div>
 
                             <!-- Size -->
                             <div class="mt-4">
                                 <small class="d-block font-weight-bold text-dark mb-2">Size:</small>
-                                <div class="d-flex">
-                                    <div class="checkbox-alphanumeric">
+                                <div class="d-flex justify-content-between">
+                                    <div class="checkbox">
                                         <input id="size-1" name="size" type="radio">
-                                        <label for="size-1">37</label>
+                                        <label for="size-1">Kitten</label>
                                     </div>
-                                    <div class="checkbox-alphanumeric">
+                                    <div class="checkbox">
                                         <input id="size-2" name="size" type="radio">
-                                        <label for="size-2">38</label>
+                                        <label for="size-2">Cat</label>
                                     </div>
-                                    <div class="checkbox-alphanumeric">
+                                    <div class="checkbox">
                                         <input id="size-3" name="size" type="radio">
-                                        <label for="size-3">39</label>
-                                    </div>
-                                    <div class="checkbox-alphanumeric">
-                                        <input id="size-4" name="size" type="radio">
-                                        <label for="size-4">40</label>
-                                    </div>
-                                    <div class="checkbox-alphanumeric">
-                                        <input id="size-5" name="size" type="radio">
-                                        <label for="size-5">41</label>
-                                    </div>
-                                    <div class="checkbox-alphanumeric">
-                                        <input id="size-6" name="size" type="radio">
-                                        <label for="size-6">42</label>
+                                        <label for="size-3">Old fart</label>
                                     </div>
                                 </div>
                             </div>
@@ -200,10 +98,10 @@
                                 <small class="d-block font-weight-bold text-dark">Maintaining</small>
                                 <ul class="list-unstyled list-icon">
                                     <li class="text-sm py-1">
-                                        <i class="fas fa-tshirt mr-3"></i>Exterior: 98% cotton, 2% elastane
+                                        <i class="fas fa-tshirt mr-3"></i>Exterior: 98% Furr, 2% Claws
                                     </li>
                                     <li class="text-sm py-1">
-                                        <i class="fas fa-air-freshener mr-3"></i>Machine wash up to 30&deg;/86&deg;F gentle cycle
+                                        <i class="fas fa-air-freshener mr-3"></i>Try not to put your cat in the laundry machine too often, manual wash prefered
                                     </li>
                                     <li class="text-sm py-1">
                                         <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F
@@ -351,4 +249,4 @@
 
 
     </main>
->>>>>>> 62ad1b795ee410af8ef4a892074755668bb0d807
+
