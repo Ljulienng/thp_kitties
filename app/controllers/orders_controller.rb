@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-  def new
-  end
+  before_action :authenticate_user!
 
+  layout "application"
   def index
     @orders = current_user.orders
   end
