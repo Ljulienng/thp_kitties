@@ -10,11 +10,11 @@
                         <div class="row row-grid align-items-center">
                             <div class="col-lg-8">
                                 <div class="media align-items-center">
-                                    <div class="avatar avatar-lg rounded-circle mr-3">
+                            <div class="avatar rounded-circle shadow">
                                         <%if @user.avatar.attached?%>
-                                            <%= image_tag(@user.avatar, :alt => "avatar") %> 
+                                            <%= image_tag(@user.avatar, :alt => "avatar", class: "card-img-top") %> 
                                         <%else%>
-                                            <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar") %> 
+                                            <%= image_tag("img/prv/team-1-800x800.jpg", :alt => "avatar", class: "card-img-top") %> 
                                         <%end%>      
                                     </div>
                                     <div class="media-body">
@@ -45,7 +45,6 @@
                     </div>
                 </div>
 
-                <form>
                     <!-- General -->
 
                     <div class="page-inner-header mb-4">
@@ -57,7 +56,6 @@
 
                     <%= render 'form', user: @user %>
 
-                </form>
             </div>
         </div>
     </div>

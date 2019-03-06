@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}  
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', passwords: 'passwords'}  
 
 
   resources :products, :path=> "cats" do
     resources :products_avatars, only: [:create]  
     resources :carts, only: [:destroy, :create, :update, :index]
   end
-  resources :users, :path=> "friends" do
+  resources :users, :path=> "friends", only: [:show, :edit, :update] do
       resources :carts, only: [:destroy, :create, :update, :show]
       resources :avatars, only: [:create]
   end
