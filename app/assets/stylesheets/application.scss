@@ -6,3 +6,7 @@
 */
 @import "fontawesome-free/css/all.min.css";
 @import "theme.scss";
+
+a:hover {
+  background-color: transparent;
+}
