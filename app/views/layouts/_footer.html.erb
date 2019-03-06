@@ -2,9 +2,9 @@
         <div class="container">
             <div class="row pt-md">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="../index.html">
+                    <%= link_to root_path do  %>
                         <img src="/assets/img/logo.png" alt="Footer logo" width="250" height="100">
-                    </a>
+                    <% end %>
                     <p class="text-sm">a unique and beautiful photo collection of kitten, you will fall for our little ball of hair too cute.</p>
                 </div>
                 <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0 align-self-center">
@@ -46,9 +46,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/Ljulienng/thp_kitties" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <%= link_to "<i class='fab fa-github'></i>".html_safe, "https://github.com/Ljulienng/thp_kitties", :class => "nav-link", :target => "_blank" %>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank">
