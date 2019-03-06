@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-  before_action :if_current_cart_exist?
+  before_action :correct_user
 
   # GET /carts
   # GET /carts.json
@@ -74,15 +74,6 @@ class CartsController < ApplicationController
       params.require(:cart).permit(:user_id, :product_id, :purchased)
     end
 
-    def if_current_cart_exist?
-      if @cart == nil
-        current_user.cart  = Cart.create(user: current_user)
-      else
-        if current_user.cart != @cart
-          flash[:danger] = "stfu"
-          redirect_to root_path
-        end
-      end
-    end
+
 
 end

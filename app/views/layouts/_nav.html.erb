@@ -26,11 +26,17 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdown_user_account">
                                     <h6 class="dropdown-header">User menu</h6>
-                                    <%= link_to  cart_path(current_user.cart.id), class: "dropdown-item" do %>
-                                        <% if current_user.cart %>
-                                         <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
+
+                                    <% if current_user.cart %>
+                                        <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
+                                             <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
+                                            <i class="fas fa-shopping-cart text-primary "></i>cart
                                         <% end %>
-                                        <i class="fas fa-shopping-cart text-primary "></i>cart
+                                    <% else %>
+                                        <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
+                                            <i class="fas fa-shopping-cart text-primary "></i>cart
+                                        <% end %>
+
                                     <% end %>
                                     <%= link_to "<i class='fas fa-cog text-primary'></i>Settings".html_safe, edit_user_path(current_user.id), class: "dropdown-item" %>
                                     <div class="dropdown-divider" role="presentation"></div>
