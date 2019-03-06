@@ -4,6 +4,7 @@
     <title>TKP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -20,8 +21,6 @@
     <%= render "layouts/footer"%>
     <%= render "layouts/modale" %>
 
-    <%= link_to "sign_in", new_user_session_path, remote: true, class: "btn" %>
-    <%= link_to "sign_up", new_user_registration_path, remote: true, class: "btn" %>
 
 
   </body>
