@@ -13,10 +13,10 @@
                         </a>
                     <%else%>
                     <a href="/cats/<%=@product.id%>">
-                    <img alt="Image placeholder" src="../assets/img/brand/logo_1.png" class="img-fluid">
+                    <img alt="Image placeholder" src="/assets/img/brand/logo_1.png" class="img-fluid">
                     </a>
                     <%end%>                        </div>
-                        
+
                     </div>
                     <div class="col-lg-6">
                         <form class="pl-lg-4">
@@ -86,10 +86,8 @@
 
                             <!-- Quantity -->
                             <div class="mt-4">
-                                <small class="d-block font-weight-bold text-dark mb-2">Quantity</small>
                                 <div class="d-flex">
-                                    <input type="text" class="form-control text-center" placeholder="Qty" style="width: 100px;">
-                                    <button type="button" class="btn btn-primary ml-3">Add to cart</button>
+                                    <%= link_to 'Add to cart', cart_products_path(product_id: @product.id), :method => :post,:class => "btn btn-primary ml-3"  %>
                                 </div>
                             </div>
 
