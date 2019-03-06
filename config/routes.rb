@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
+=======
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
+>>>>>>> f944fd5564b4d484fd5576f8d320742c07e375f0
 
   resources :products, :path=> "cats" do
     resources :products_avatars, only: [:create]
