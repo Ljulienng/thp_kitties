@@ -1,5 +1,5 @@
 class CartProductsController < ApplicationController
-  before_action :authenticate_user!, only[:create, :destroy]
+  before_action :authenticate_user!
 
   def create
     @user_cart = current_user.cart
@@ -7,6 +7,8 @@ class CartProductsController < ApplicationController
   end
 
   def destroy
-    CartProduct.find(params[:id]).destroy
+    cp = CartProduct.find(params[:id])
+    cp.destroy
+    redirect_to root_path
   end
 end

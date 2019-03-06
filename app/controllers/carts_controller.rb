@@ -6,6 +6,12 @@ class CartsController < ApplicationController
 
   # GET /carts/1
   # GET /carts/1.json
+
+  def index
+    @user = User.find(params[:user_id])
+    @cart = @user.cart
+  end
+
   def show
     @cart = Cart.find(params[:id])
     @total = 0

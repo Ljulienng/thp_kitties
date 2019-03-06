@@ -26,6 +26,7 @@
                         </thead>
                         <tbody>
                           <% @cart.products.each do |product| %>
+                          <%= @cart.cart_products%>
                             <tr>
                                 <td>
                                     <div class="media align-items-center">
@@ -42,9 +43,9 @@
                                     <span class="font-weight-bold">$<%=product.price%> USD</span>
                                 </td>
                                 <td class="text-right">
-                                    <a href="<%cart_product_path(product.id)%>" class="text-light" data-method="DELETE">
-                                        <i class="fas fa-times"></i>
-                                    </a>
+                                  <%= link_to cart_product_path(product.id), class: "text-light", method: :delete do %>
+                                                                          <i class="fas fa-times"></i>
+                                    <%end%>
                                 </td>
                             </tr>
                             <% end %>
