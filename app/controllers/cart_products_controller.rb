@@ -3,7 +3,9 @@ class CartProductsController < ApplicationController
 
   def create
     @user_cart = current_user.cart
-    @product_selected = Product.find(params[:product_id].to_i)
+    @product_selected = Product.find(params[:product_id])
+    CartProduct.create(cart: @user_cart, product: @product_selected)
+    redirect_to root_path
   end
 
   def destroy
