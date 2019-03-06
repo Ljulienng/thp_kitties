@@ -15,9 +15,9 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    @@total = 0
+    @total = 0
     @cart.products.each do |product|
-      @@total += product.price
+      @total += product.price
     end
   end
 
