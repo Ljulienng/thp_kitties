@@ -7,7 +7,7 @@ class Product < ApplicationRecord
         length: { in: 3..30, message: "must be between 3 and 30 characters" }
   validates :description,
         presence: true,
-        length: {in: 20..600, message: "must be between 20 and 600 characters"}
+        length: {in: 15..600, message: "must be between 20 and 600 characters"}
 
 
   has_many :cart_items, dependent: :destroy

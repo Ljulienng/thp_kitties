@@ -10,7 +10,7 @@
                             <div class="card-image">
                             <%if product.avatar.attached?%>
                                 <%= link_to product_path(product.id) do  %>
-                                    <%= image_tag product.avatar, alt: 'cat', height: 405, width: 400%>
+                                    <%= image_tag product.avatar, alt: 'cat', height: 308, width: 308%>
                                 <% end %>
                             <%else%>
                                 <%= link_to product_path(product.id) do %>
@@ -24,7 +24,7 @@
                                     <%= product.title %>
                                 <% end %>
 
-                                <span class="card-price"><%=product.price%></span>
+                                <span class="card-price">$<%=product.price%> USD</span>
                                 <div class="product-colors mt-3">
                                     <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
                                     <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
