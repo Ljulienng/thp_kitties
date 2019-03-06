@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', passwords: 'passwords'}  
+
+
+
 
 
   resources :products, :path=> "cats" do
@@ -10,7 +14,9 @@ Rails.application.routes.draw do
   resources :users, :path=> "friends", only: [:show, :edit, :update] do
       resources :avatars, only: [:create]
   end
-  resources :carts, only: [:destroy, :create, :update, :show]
+  resources :carts, only: [:destroy, :create, :update, :show] do
+    resources :orders
+  end
   resources :cart_products
   root 'home#index'
   get 'contact', to: 'home#contact'
