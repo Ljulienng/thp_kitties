@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :if_current_cart_exist?
-    #before_action :progress_bar
+    before_action :progress_bar
 
   def is_product_already_used?
     @user = current_user

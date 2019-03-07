@@ -15,7 +15,7 @@ class Admins::ProductsController < ApplicationController
     product_params = params.permit(:title, :description, :price)
 
     if @product.update(product_params)
-
+      @product.avatar.attach(params[:avatar])
       flash[:notice] = "The product was successfully modified"
       redirect_to admins_products_path
     else

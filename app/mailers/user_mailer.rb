@@ -9,20 +9,17 @@ class UserMailer < ApplicationMailer
   end
 
   def order_email_admin(order)
-  @users = Users.find_by(admin: true)
-  @users.each do |user|
-  mail(to: @user.email, subject: 'Your Kitten order')
-  mail(to: @user.email, subject: 'Your Kitten order')
-  @products = order.cart.products
+    @users = User.where(admin: true)
+    @users.each do |user|
+      @products = order.cart.products
+      mail(to: user.email, subject: 'Your Kitten order')
+    end
   end
+
   def order_email(order)
-  @user = order.user
-  @products = order.cart.products
-  @url = 'http://kittiesfr/login'
-
-  mail(to: @user.email, subject: 'Your Kitten order')
-  end
-
+    @user = order.user
+    @products = order.cart.products
+    @url = 'http://kittiesfr/login'
     mail(to: @user.email, subject: 'Your Kitten order')
   end
 end
