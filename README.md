@@ -1,6 +1,6 @@
 
 ## Don't even try to pronounce one more time the word 'kittens' or 'heroku'  <br />
-![grumpy cat](https://i.etsystatic.com/15090621/r/il/e84a5d/1480712183/il_570xN.1480712183_cce7.jpg)
+![grumpy cat](https://i.etsystatic.com/15090621/r/il/e84a5d/1480712183/il_570xN.1480712183_cce7.jpg) <br />
 -`git clone` <br />
 -`bundle install`<br />
 -`rails db:create`<br />
