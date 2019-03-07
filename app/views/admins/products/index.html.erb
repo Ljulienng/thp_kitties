@@ -16,7 +16,11 @@
         <% @products.order(:id).each do |product| %>
             <tr>
               <td> <%= product.id %></td>
-              <td><%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %></td>
+              <%if product.avatar.attached?%>
+                <td><%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %></td>
+              <%else%>
+                <td><%= image_tag "/assets/img/brand/logo_1.png", alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %></td>
+              <%end%>
               <td><%= product.title %></td>
               <td><%= product.description %></td>
               <td  class="text-center">
