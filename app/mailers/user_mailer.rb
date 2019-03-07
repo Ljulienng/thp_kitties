@@ -9,10 +9,10 @@ class UserMailer < ApplicationMailer
   end
 
   def order_email(order)
-  @user = order.user
+    @user = order.user
 
-  @url = 'http://kittiesfr/login'
+    @url = 'http://kittiesfr/login'
 
-  mail(to: @user.email, subject: 'Your Kitten order')
-
+    mail(to: @user.email, subject: 'Your Kitten order')
+  end
 end
