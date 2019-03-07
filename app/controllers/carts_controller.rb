@@ -81,6 +81,11 @@ class CartsController < ApplicationController
       params.require(:cart).permit(:user_id, :product_id, :purchased)
     end
 
-
-
+    def correct_user
+      if current_user.cart != @cart
+        flash[:danger] = "Incorrect cart"
+        redirect_to '/'
+      end
+    end
+  
 end

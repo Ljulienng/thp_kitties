@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :if_current_cart_exist?
+    before_action :progress_bar
 
   def is_product_already_used?
     @user = current_user
@@ -12,6 +13,28 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def progress_bar
+    if user_signed_in?
+      @progress_status = 0
+        if current_user.first_name.length > 1
+          @progress_status += 25
+        end
+        if current_user.last_name.length > 1
+          @progress_status += 25
+        end
+        if current_user.user_name.length > 1
+          @progress_status += 25
+        end
+        if current_user.description.length > 1
+          @progress_status += 25
+        end
+
+    end
+
+
+
+  end
+
 
   def if_current_cart_exist?
     if user_signed_in?
@@ -20,12 +43,4 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
-  def correct_user
-    if current_user.cart != @cart
-      flash[:danger] = "Incorrect cart"
-      redirect_to '/'
-    end
-  end
-
 end

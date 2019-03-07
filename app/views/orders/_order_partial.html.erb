@@ -1,0 +1,27 @@
+<div class="col-lg-3 col-sm-6 col-sm-6 m-5">
+    <div class="card card-product no-bproduct shadow shadow--hover">
+         <% total = 0 %>
+        <% order.cart.products.each do |product| %>
+            <% total += product.price %>
+            <%= link_to product_path(product.id) do  %>
+                <div class="row justify-content-around mt-3">
+                    <div class="avatar rounded-circle shadow col-2  ">
+                        <%if product.avatar.attached?%>
+                            <%= image_tag product.avatar, alt: 'cat',  class: "card-img-top"%>
+                        <%else%>
+                            <%= image_tag "/assets/img/brand/logo_1.png", alt: "Image placeholder",  class: "card-img-top" %>
+                        <%end%>
+                    </div>
+                    <div class="card-body pt-0 text-center col-4">
+                        <%= product.title %>
+                        <span class="card-price">$<%=product.price%> USD</span>
+                    </div>
+                </div>
+            <% end %>
+            <hr class="m-0 p-0 "> 
+        <% end %>
+        <div class="text-muted text-center pb-3">
+            Total price : <%= total.to_s %> $
+        </div>
+    </div>
+</div>       

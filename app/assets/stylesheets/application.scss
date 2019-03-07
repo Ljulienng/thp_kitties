@@ -3,7 +3,10 @@
 *= require_self
 
 *= require styles/atom-one-dark
-*= require fontawesome-free/css/all.min
 */
-
+@import "fontawesome-free/css/all.min.css";
 @import "theme.scss";
+
+a:hover {
+  background-color: transparent;
+}
