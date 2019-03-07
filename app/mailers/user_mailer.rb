@@ -5,6 +5,14 @@ class UserMailer < ApplicationMailer
     @user = user
     @url  = 'http://kitties.fr/login'
 
-    mail(to: @user.email, subject: 'Bienvenue chez nous !')
+    mail(to: @user.email, subject: 'Welcome to Kitten Project !')
   end
+
+  def order_email(order)
+  @user = order.user
+
+  @url = 'http://kittiesfr/login'
+
+  mail(to: @user.email, subject: 'Your Kitten order')
+
 end

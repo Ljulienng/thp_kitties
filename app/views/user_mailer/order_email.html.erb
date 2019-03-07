@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey <%= @user.name %> and thank you for your order !</h1>
+    <h1>Hey <%= @user.first_name %> and thank you for your order !</h1>
     <ul>
-    <% @order.each do |product|%>
+    <% @product.each do |product|%>
       <li><%=product%></li>
     </ul>
     <p>

@@ -6,8 +6,10 @@ class OrdersController < ApplicationController
     @cart = Cart.find(params[:cart_id])
     @total = 0
     @cart.products.each do |product|
-      @total += product.price
+    @total += product.price
     end
+
+  
 
     @order = Order.new(user_id: current_user.id, total_price: @total)
 
@@ -24,7 +26,9 @@ class OrdersController < ApplicationController
       amount: @amount.to_i,
       description: 'Rails Stripe customer',
       currency: 'usd',
-    })
+    })  
+
+    
     @order.save
     current_user.cart.destroy
     redirect_to root_path
