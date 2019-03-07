@@ -81,4 +81,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'table_print'
 gem 'mailjet'
-gem "aws-sdk-s3", require: false

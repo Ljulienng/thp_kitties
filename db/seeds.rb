@@ -23,7 +23,7 @@ i = 0
                             description: Faker::TvShows::RickAndMorty.quote,
                             image_url: Faker::LoremPixel.image("300x157", false, 'cats')
                             )
-    product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"kitten#{i}.jpg")
+    product.avatar.attach(io: File.open("/app/assets/images/img/Kittens/kitten#{i}.jpg"), filename:"kitten#{i}.jpg")
     while product.description.length < 15
       product.description = Faker::TvShows::RickAndMorty.quote
     end
