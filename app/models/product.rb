@@ -10,6 +10,6 @@ class Product < ApplicationRecord
         length: {in: 15..600, message: "must be between 20 and 600 characters"}
 
 
-  has_many :cart_items, dependent: :destroy
+  has_many :cart_products, dependent: :destroy
   has_one_attached :avatar
 end

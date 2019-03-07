@@ -1,7 +1,7 @@
 <section class="pt-5 pt-lg-0 bg-secondary">
     <div class="container">
         <div class="row">
-            <%= render "small_card" %>
+            <%= render "users/small_card" %>
             <div class="col-md-8 mt-lg-5 mb-5">
                 <!-- Setting -->
 
@@ -9,8 +9,8 @@
 
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <%= link_to edit_user_path(@user), class: "h6 mb-0"  do %>
-                              <i class="fas fa-angle-left mr-3"></i>Settings
+                            <%= link_to admins_users_path, class: "h6 mb-0"  do %>
+                              <i class="fas fa-angle-left mr-3"></i>Back to users index
                             <% end %>
                         </div>
                         <div class="col-md-6 text-md-right">

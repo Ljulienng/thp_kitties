@@ -1,0 +1,95 @@
+<%= stylesheet_link_tag "products", media: "all" %>
+
+<%= form_tag url_for(action: 'update'), method: "patch" do %>
+        <section class="slice slice-lg" id="sct-products">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Product gallery -->
+                        <div class="mb-5 imgProd">
+                            <%if @product.avatar.attached?%>
+                                <%= link_to product_path(@product.id) do  %>
+                                    <%= image_tag @product.avatar, alt: 'cat', height: 550, width: 550%>
+                                <% end %>
+                            <%else%>
+                                <%= link_to product_path(@product.id) do  %>
+                                    <img alt="Image placeholder" src="/assets/img/brand/logo_1.png" class="img-fluid">
+                                 <% end %>
+                            <%end%>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="pl-lg-4">
+                            <!-- Product title -->
+                            <%= label_tag 'Title'%>
+                            <%= text_field_tag :title, @product.title, class:'form-control', placeholder: @product.title, style: "width: auto"%>
+
+
+                            <!-- Product description -->
+                            <div class="mt-4">
+                                <small class="text-dark font-weight-bold d-block mb-2">Description:</small>
+                                 <%= text_area_tag :description, @product.description, class:'form-control text-sm lh-150', placeholder: @product.description, style: "width: auto"%>
+                            </div>
+
+                            <!-- Size -->
+                            <div class="mt-4">
+                                <small class="d-block font-weight-bold text-dark mb-2">Price:</small>
+                                <%= text_field_tag :price, @product.price, class:'form-control text-sm lh-150', placeholder: @product.price, style: "width: auto"%>
+                            </div>
+
+                            <!-- Color -->
+                            <div class="mt-4">
+                                <small class="d-block font-weight-bold text-dark mb-2">Color:</small>
+                                <div class="d-flex">
+                                    <div class="custom-color">
+                                        <input id="color-1" name="size" type="radio">
+                                        <label for="color-1" class="rounded-circle" style="background: #59ad46;"></label>
+                                    </div>
+                                    <div class="custom-color">
+                                        <input id="color-2" name="size" type="radio">
+                                        <label for="color-2" class="rounded-circle" style="background: #04050a;"></label>
+                                    </div>
+                                    <div class="custom-color">
+                                        <input id="color-3" name="size" type="radio">
+                                        <label for="color-3" class="rounded-circle" style="background: #62aedd;"></label>
+                                    </div>
+                                    <div class="custom-color">
+                                        <input id="color-4" name="size" type="radio">
+                                        <label for="color-4" class="rounded-circle" style="background: #e84385;"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quantity -->
+                            <div class="mt-4">
+                                <div class="d-flex">
+                                    <%= link_to 'Back to admin index', admins_products_path,    :class => "btn btn-primary ml-3"  %>
+                                </div>
+                            </div>
+
+                            <!-- Product info -->
+                            <div class="mt-4">
+                                <small class="d-block font-weight-bold text-dark">Maintaining</small>
+                                <ul class="list-unstyled list-icon">
+                                    <li class="text-sm py-1">
+                                        <i class="fas fa-tshirt mr-3"></i>Exterior: 98% Furr, 2% Claws
+                                    </li>
+                                    <li class="text-sm py-1">
+                                        <i class="fas fa-air-freshener mr-3"></i>Try not to put your cat in the laundry machine too often, manual wash prefered
+                                    </li>
+                                    <li class="text-sm py-1">
+                                        <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <%= submit_tag "Modify", class: "btn btn-primary" %>
+            </div>
+        </section>
+
+
+    </main>
+<% end %>
