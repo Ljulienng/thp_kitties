@@ -20,7 +20,7 @@
               <td><%= product.title %></td>
               <td><%= product.description %></td>
               <td  class="text-center">
-                <%= link_to '<i class="far fa-eye"></i>'.html_safe, admins_product_path(product.id), class: "text-decoration-none "  %>
+                <%= link_to '<i class="far fa-eye"></i>'.html_safe, edit_admins_product_path(product.id), class: "text-decoration-none "  %>
                 <a href="<%= admins_product_path(product.id) %>" data-confirm="Etes-vous sûr ?" data-method="DELETE"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
