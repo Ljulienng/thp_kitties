@@ -1,8 +1,6 @@
 <div class="col-lg-3 col-sm-6 col-sm-6 m-5">
     <div class="card card-product no-bproduct shadow shadow--hover">
-         <% total = 0 %>
         <% order.cart.products.each do |product| %>
-            <% total += product.price %>
             <%= link_to product_path(product.id) do  %>
                 <div class="row justify-content-around mt-3">
                     <div class="avatar rounded-circle shadow col-2  ">
@@ -21,7 +19,7 @@
             <hr class="m-0 p-0 "> 
         <% end %>
         <div class="text-muted text-center pb-3">
-            Total price : <%= total.to_s %> $
+            Total price : <%= order.total_price %> $
         </div>
     </div>
 </div>       

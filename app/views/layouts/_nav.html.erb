@@ -1,63 +1,63 @@
 <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
-            <div class="container">
-                <%= link_to root_path, :class => 'navbar-brand mr-lg-5' do  %>
-                    <img alt="Image placeholder" src="/assets/img/logo-1.png" style="height: 50px;">
+    <div class="container">
+        <%= link_to root_path, :class => 'navbar-brand mr-lg-5' do  %>
+            <img alt="Image placeholder" src="/assets/img/logo-1.png" style="height: 50px;">
+        <% end %>
+        <button id="toggler-nav-bar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+            <ul class="navbar-nav align-items-lg-center">
+                <li class="nav-item ">
+                    <%= link_to 'Shop', products_path, :class => 'nav-link'  %>
+                </li>
+                    <%= link_to "Contact", contact_path, :class => 'nav-link'  %>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                <% if user_signed_in? %>
+                    <div class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                        <button class="btn btn-white btn-icon-only rounded-circle dropdown" type="button" id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-inner--icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdown_user_account">
+                            <h6 class="dropdown-header">User menu</h6>
+
+                            <% if current_user.cart %>
+                                <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
+                                        <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
+                                    <i class="fas fa-shopping-cart text-primary "></i>cart
+                                <% end %>
+                            <% else %>
+                                <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
+                                    <i class="fas fa-shopping-cart text-primary "></i>cart
+                                <% end %>
+
+                            <% end %>
+                            <%= link_to "<i class='fas fa-cog text-primary'></i>Settings".html_safe, edit_user_path(current_user.id), class: "dropdown-item" %>
+                            <%= link_to orders_path, class: "dropdown-item"  do%>
+                                    <i class="fas fa-credit-card mr-2 text-primary"></i>
+                                    <span>Billing</span>
+                            <% end %>
+
+                            <div class="dropdown-divider" role="presentation"></div>
+                            <%= link_to "<i class='fas fa-sign-out-alt text-primary'></i>Sign out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                        </div>
+                    </div>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Log in", new_user_session_path, remote: true, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Sign up", new_user_registration_path, remote: true,  class: "nav-link" %>
+                    </li>
                 <% end %>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            </ul>
 
-                <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                    <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item ">
-                            <%= link_to 'Shop', products_path, :class => 'nav-link'  %>
-                        </li>
-                            <%= link_to "Contact", contact_path, :class => 'nav-link'  %>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                        <% if user_signed_in? %>
-                            <div class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                                <button class="btn btn-white btn-icon-only rounded-circle dropdown" type="button" id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="btn-inner--icon">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdown_user_account">
-                                    <h6 class="dropdown-header">User menu</h6>
-
-                                    <% if current_user.cart %>
-                                        <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
-                                             <span class="float-right badge badge-primary"><%= current_user.cart.products.count %></span>
-                                            <i class="fas fa-shopping-cart text-primary "></i>cart
-                                        <% end %>
-                                    <% else %>
-                                        <%= link_to cart_path(current_user.cart.id), class: "dropdown-item" do %>
-                                            <i class="fas fa-shopping-cart text-primary "></i>cart
-                                        <% end %>
-
-                                    <% end %>
-                                    <%= link_to "<i class='fas fa-cog text-primary'></i>Settings".html_safe, edit_user_path(current_user.id), class: "dropdown-item" %>
-                                    <%= link_to orders_path, class: "dropdown-item"  do%>
-                                            <i class="fas fa-credit-card mr-2 text-primary"></i>
-                                            <span>Billing</span>
-                                    <% end %>
-
-                                    <div class="dropdown-divider" role="presentation"></div>
-                                    <%= link_to "<i class='fas fa-sign-out-alt text-primary'></i>Sign out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-                                </div>
-                            </div>
-                        <% else %>
-                            <li class="nav-item">
-                                <%= link_to "Log in", new_user_session_path, remote: true, class: "nav-link" %>
-                            </li>
-                            <li class="nav-item">
-                                <%= link_to "Sign up", new_user_registration_path, remote: true,  class: "nav-link" %>
-                            </li>
-                        <% end %>
-                    </ul>
-
-                </div>
-            </div>
+        </div>
+    </div>
  </nav>

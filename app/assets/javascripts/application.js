@@ -16,3 +16,13 @@
 //= require theme
 
 //= require_tree .
+
+$(document).ready(function() {
+  $("#toggler-nav-bar").click(function() {
+    $("#navbar-main-collapse").toggleClass("collapse");
+  });
+
+  $("#alert-btn").click(function() {
+    $("#flash-alert").toggleClass("collapse");
+  });
+});
