@@ -1,0 +1,137 @@
+
+
+<header class="header-account-page bg-gradient-warning d-flex align-items-end">
+    <div class="container">
+        <div class="row">
+            <div class=" col-lg-12">
+                <!-- Salute + Small stats -->
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <span class="h2 mb-0 text-white d-block"><%= current_user.first_name%> <%= current_user.last_name %></span>
+                        <span class="text-light">Have a nice day!</span>
+                    </div>
+
+                </div>
+                <!-- Account navigation -->
+                <div class="d-flex">
+                    <%= link_to edit_user_path(current_user.id), class: "btn btn-icon btn-group-nav shadow btn-secondary" do  %>
+                        <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
+                        <span class="btn-inner--text d-none d-md-inline-block">My Profile</span>
+                    <% end %>
+                    <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
+                        <div class="btn-group" role="group">
+                            <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+                                <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
+                                <span class="btn-inner--text d-none d-sm-inline-block">Boards</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-boards">
+                                <a class="dropdown-item" href="account-overview.html">Overview</a>
+                                <a class="dropdown-item" href="account-projects.html">Projects</a>
+                                <a class="dropdown-item" href="account-tasks.html">Tasks</a>
+                                <a class="dropdown-item" href="account-connections.html">Connections</a>
+                            </div>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+                                <span class="btn-inner--icon"><i class="fas fa-sliders-h"></i></span>
+                                <span class="btn-inner--text d-none d-sm-inline-block">Settings</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-settings">
+                                <a class="dropdown-item" href="account-profile.html">Profile</a>
+                                <a class="dropdown-item" href="account-settings.html">Settings</a>
+                                <a class="dropdown-item" href="account-billing.html">Billing</a>
+                                <a class="dropdown-item" href="account-notifications.html">Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<section class="slice bg-secondary">
+    <div class="container">
+        <!-- Stats -->
+        <div class="mb-5">
+            <div class="row">
+                <div class="col-lg-4">
+
+                    <div class="card card-stats bg-gradient-info shadow-info border-0 mb-4">
+
+                        <div class="actions actions-dark">
+                            <%= link_to '<i class="fas fa-eye"></i>'.html_safe, admins_users_path, class: "action-item" %>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div>
+                                    <span class="icon icon-sm text-white">
+                                        <i class="fas fa-users"></i>
+                                    </span>
+                                </div>
+                                <div class="pl-4">
+                                    <h5 class="mb-1 text-white"><%= @users.all.count%></h5>
+                                    <span class=" text-white">Total users</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="card card-stats bg-gradient-warning shadow-warning border-0 mb-4">
+
+                        <div class="actions actions-dark">
+                            <%= link_to '<i class="fas fa-eye"></i>'.html_safe, admins_products_path, class: "action-item" %>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div>
+                                    <span class="icon icon-sm text-white">
+            <i class="fas fa-file-alt"></i>
+        </span>
+                                </div>
+                                <div class="pl-4">
+                                    <h5 class="mb-1 text-white"><%= @products.all.count%></h5>
+                                    <span class=" text-white">Current Products</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="card card-stats bg-gradient-success shadow-success border-0 mb-4">
+
+                        <div class="actions actions-dark">
+                            <%= link_to '<i class="fas fa-eye"></i>'.html_safe, class: "action-item" %>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div>
+                                    <span class="icon icon-sm text-white">
+            <i class="fas fa-file-alt"></i>
+        </span>
+                                </div>
+                                <div class="pl-4">
+                                    <h5 class="mb-1 text-white"><%= @orders.all.count %></h5>
+                                    <span class=" text-white">Total orders made</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

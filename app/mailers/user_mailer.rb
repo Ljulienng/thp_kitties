@@ -23,4 +23,6 @@ class UserMailer < ApplicationMailer
   mail(to: @user.email, subject: 'Your Kitten order')
   end
 
+    mail(to: @user.email, subject: 'Your Kitten order')
+  end
 end

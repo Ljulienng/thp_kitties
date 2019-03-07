@@ -16,23 +16,28 @@ class ApplicationController < ActionController::Base
   def progress_bar
     if user_signed_in?
       @progress_status = 0
-        if current_user.first_name.length > 1
+      unless current_user.first_name.nil?
+        unless current_user.first_name.empty?
+          @progress_status += 25
+        end  
+      end
+      unless current_user.last_name.nil?
+        unless current_user.last_name.empty?
+          @progress_status += 25
+        end  
+      end
+      unless current_user.user_name.nil?
+        unless current_user.user_name.empty?
           @progress_status += 25
         end
-        if current_user.last_name.length > 1
+      end
+      unless current_user.description.nil?
+        unless current_user.description.empty?
           @progress_status += 25
         end
-        if current_user.user_name.length > 1
-          @progress_status += 25
-        end
-        if current_user.description.length > 1
-          @progress_status += 25
-        end
-
+  
+      end
     end
-
-
-
   end
 
 

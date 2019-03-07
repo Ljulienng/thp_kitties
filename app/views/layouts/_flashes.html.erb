@@ -2,10 +2,10 @@
     <% name = "success" if name == "notice" %>
     <% name = "danger" if name == "alert" %>
 
-    <div class="alert alert-<%=name%> alert-dismissible fade show mb-0" role="alert">
+    <div id="flash-alert" class="alert alert-<%=name%> alert-dismissible   mb-0" role="alert">
         <h4>Alert</h4>
         <p><%= raw(msg)%></p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button id="alert-btn" type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
