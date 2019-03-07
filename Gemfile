@@ -40,7 +40,7 @@ gem 'pry'
 gem 'dotenv-rails'
 #lazy user creation
 gem 'devise'
-gem 'faker'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 #Front end gem
 gem "font-awesome-rails"
 gem 'bootstrap', '~> 4.1.3'
