@@ -15,6 +15,9 @@ require 'faker'
                       email: Faker::Internet.email,
                       password: "123456")
 end
+
+User.create!(email: "admin@admin.com", password: "123456" )
+
 i = 0
 20.times do
   i += 1
