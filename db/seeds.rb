@@ -28,3 +28,4 @@ i = 0
       product.description = Faker::TvShows::RickAndMorty.quote
     end
 end
+
