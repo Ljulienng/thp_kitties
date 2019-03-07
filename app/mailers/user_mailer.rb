@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
 
   def order_email(order)
   @user = order.user
-
+  @products = order.cart.products
   @url = 'http://kittiesfr/login'
 
   mail(to: @user.email, subject: 'Your Kitten order')

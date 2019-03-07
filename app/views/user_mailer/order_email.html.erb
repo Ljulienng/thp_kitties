@@ -6,8 +6,8 @@
   <body>
     <h1>Hey <%= @user.first_name %> and thank you for your order !</h1>
     <ul>
-    <% @product.each do |product|%>
-      <li><%=product%></li>
+    <% @products.each do |product|%>
+      <li><%=product.image_url%></li>
     </ul>
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.

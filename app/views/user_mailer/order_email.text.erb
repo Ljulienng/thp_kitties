@@ -1,0 +1,10 @@
+Hello <%= @user.first_name %> here are your kittens !
+==========================================================
+ 
+<% @products.each do |product|%>
+    <%=product.image_url%>
+  
+ 
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+ 
+À très vite sur kitties.fr !
