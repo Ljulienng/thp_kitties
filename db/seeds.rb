@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Order.destroy_all
+CartProduct.destroy_all
+Cart.destroy_all
+Product.destroy_all
+User.destroy_all
 
 
 10.times do
@@ -27,7 +32,7 @@ i = 0
                             #image_url: Faker::LoremPixel.image("300x157", false, 'cats')                            
                             )
 
-    product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.png"), filename:"kitten#{i}.png")
+    #product.avatar.attach(io: File.open("app/assets/images/img/Kittens/kitten#{i}.png"), filename:"kitten#{i}.png")
     while product.description.length < 15
       product.description = Faker::TvShows::RickAndMorty.quote
     end

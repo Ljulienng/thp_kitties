@@ -3,8 +3,8 @@ class Order < ApplicationRecord
   belongs_to :cart
   validates :cart, presence: true
   validates :user, presence: true
-  #after_create :confirm_order
-  #after_create :confirm_order_admin
+  after_create :confirm_order
+  after_create :confirm_order_admin
   
   def confirm_order
     UserMailer.order_email(self).deliver_now
