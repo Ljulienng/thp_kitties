@@ -30,7 +30,11 @@
                             <tr>
                                 <td>
                                     <div class="media align-items-center">
-                                        <%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %>
+                                        <%if product.avatar.attached?%>
+                                            <%= image_tag product.avatar, alt: 'Image placeholder', class: "mr-3", width: 50, height: 50  %>
+                                        <%else%>
+                                            <%= image_tag "/assets/img/brand/logo_1.png", alt: "Image placeholder", :class => "img-fluid" %>
+                                        <% end %>
                                         <div class="media-body">
                                             <div class="lh-100">
                                                 <span class="text-dark font-weight-bold mb-0"><%=product.title%></span>
