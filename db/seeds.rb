@@ -11,7 +11,7 @@ require 'faker'
 #   p.avatar.purge
 #   puts "avatar removed"
 # end 
-# Order.destroy_all
+#Order.destroy_all
 # CartProduct.destroy_all
 # Cart.destroy_all
 # Product.destroy_all
@@ -25,7 +25,7 @@ require 'faker'
                       password: "123456")
 end
 
-User.create!(email: "admin@admin.com", password: "123456" )
+#User.create!(email: "admin@admin.com", password: "123456" )
 
 i = 0
 20.times do
