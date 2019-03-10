@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Product.all.each do |p|
+  p.avatar.purge
+  puts "avatar removed"
+end 
 Order.destroy_all
 CartProduct.destroy_all
 Cart.destroy_all
