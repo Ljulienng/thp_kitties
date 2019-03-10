@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-# Product.all.each do |p|
-#   p.avatar.purge
-#   puts "avatar removed"
-# end 
-# Order.destroy_all
-# CartProduct.destroy_all
-# Cart.destroy_all
-# Product.destroy_all
-# User.destroy_all
+Product.all.each do |p|
+  p.avatar.purge
+  puts "avatar removed"
+end 
+Order.destroy_all
+CartProduct.destroy_all
+Cart.destroy_all
+Product.destroy_all
+User.destroy_all
 
 
 10.times do
@@ -25,7 +25,7 @@ require 'faker'
                       password: "123456")
 end
 
-# User.create!(email: "admin@admin.com", password: "123456" )
+User.create!(email: "admin@admin.com", password: "123456" )
 
 i = 0
 20.times do
