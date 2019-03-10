@@ -8,6 +8,7 @@
     <ul>
     Here is your fucking pictures Dude:
     <% @products.each do |product|%>
+      <%= link_to "image", url_for(product.avatar) %></td>
       <%= image_tag product.avatar, alt: 'cat', height: 208, width: 208%>
      
     <%end%>
